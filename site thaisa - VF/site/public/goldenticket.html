@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../vetores/w!.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/goldenticket.css">
+    <script src="../js/wonkabar.js"></script>
+    <title>Wonka!</title>
+    <script src="./js/global.js"></script>
+
+</head>
+<body onload="montar_barra()">
+
+     <!-- começando o header -->
+    <div class="header-container" id="header">
+        <header class="cabeca">
+            <div>
+                <img src="../vetores/chcolcate.svg" width="100%" class="chocolate_derretido">
+            </div>
+
+            <div class="nav_bar">
+                <a href="./wonka.html"><img class="logo" src="../vetores/wonka logo.svg" width="140px"></a>
+
+                <ul class="ul1">
+                    <a href="./personagens.html">
+                        <li>Personagens</li>
+                    </a>
+                    <a href="./tour.html">
+                        <li>Tour pela Fábrica</li>
+                    </a>
+                    <a href="./loompalandia.html">
+                        <li>Loompalândia</li>
+                    </a>
+                    <a href="./wonkacards.html">
+                        <li>Wonka Cards</li>
+                    </a>
+                    <a href="wonkabar.html">
+                        <li>Wonka Bar</li>
+                    </a>
+                </ul>
+
+                <div id="div_logineusuario"
+                    style="width: 220px; display: flex; align-items: center; justify-content: center; gap: 10px; margin-left: 30px;">
+                    <a href="./login.html"><img src="../vetores/login.svg" width="120px" class="ticket_login"></a>
+                </div>
+        </header>
+    </div>
+    <!-- fim do header -->
+
+    <section class="comer_barra_container">
+        <div class="quantos_comer">
+            <img src="../vetores/logo wonkabar.svg" width="200px">
+
+        <div>
+            <span style="color: white;">Quantos pedaços</span>
+            <input type="number" id="inp_num_pedaco" class="tag_input"><br>
+        </div>
+        <button onclick="comer()" class="botao_comer">Comer</button>
+        </div>
+
+        <div class="barra">
+            <div class="pedaco">
+                <div style="flex-wrap: wrap;" id="div_1"></div>
+            </div>
+        </div>
+
+        <div class="porcentagem">
+            <div class="fundo">
+                <div style="height: fit-content; text-align: center;">
+                <div>
+                    <h3>Você já comeu</h3>
+                </div>
+                <div>
+                    <h3 style="font-size: 25px;
+                    font-weight: 900;"><span id="span2">0</span>/<span id="span1">14</span></h3>
+                </div>
+                <div>
+                    <h3>pedaços.</h3>
+                </div>
+                <div>
+                    <h3 style="font-size: 25px;
+                    font-weight: 900;"><span id="span3">0</span>%</h3>
+                </div>
+                <div>
+                    <h3>da barra</h3>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
+<script>
+    var barra_de_chocolate = JSON.parse(localStorage.getItem('barra_de_chocolate'));
+    function montar_barra(){
+    span1.innerHTML = `${barra_de_chocolate.pedaco}`
+
+var src_imagem; 
+if (barra_de_chocolate.chocolate == "ao leite" && barra_de_chocolate.confeito == "sem") {
+    src_imagem = "../vetores/aoleite.svg";
+} else if (barra_de_chocolate.chocolate == "branco" && barra_de_chocolate.confeito == "sem") {
+    src_imagem = "../vetores/branco.svg";
+} else if (barra_de_chocolate.chocolate == "ao leite" && barra_de_chocolate.confeito == "granulado") {
+    src_imagem = "../vetores/aoleiteconfeito.svg";
+} else if (barra_de_chocolate.chocolate == "branco" && barra_de_chocolate.confeito == "granulado") {
+    src_imagem = "../vetores/brancoconfeito.svg";
+} else if (barra_de_chocolate.chocolate == "ao leite" && barra_de_chocolate.confeito == "coco") {
+    src_imagem = "../vetores/aoleitecoco.svg";
+} else if (barra_de_chocolate.chocolate == "branco" && barra_de_chocolate.confeito == "coco") {
+    src_imagem = "../vetores/brancococo.svg";
+}
+
+
+var contador = 1; 
+
+
+div_1.style.maxWidth = ((barra_de_chocolate.pedaco / 2) * 70) + "px"
+
+while (contador <= barra_de_chocolate.pedaco) {
+    div_1.innerHTML += `<img id="pedaco_${contador}" class="img_pedaco" src=${src_imagem} style="margin-right: -1px; margin-bottom: -5px;" width="70px">`;
+    contador++;
+}
+}
+
+var contas = 0
+
+function comer() {
+    var num_pedaco = Number(inp_num_pedaco.value);
+    if (num_pedaco + contas > barra_de_chocolate.pedaco) {
+        alert('maior que a quantidade de pedaços');
+    } else {
+        contas += num_pedaco;
+        fazer_contas();
+    
+        var div_pedacos = document.querySelector("#div_1");
+
+        if (contas == barra_de_chocolate.pedaco) {
+            ver_goldenticket();
+        } else{
+            var pedacos_restantes = div_pedacos.children.length;
+        if (pedacos_restantes >= num_pedaco) {
+            for (var i = 0; i < num_pedaco; i++) {
+                var pedaco_atual = div_pedacos.children[0];
+                pedaco_atual.remove();
+            }
+        } else {
+            
+        }
+        }
+        
+    }
+}
+
+function fazer_contas(){
+    span2.innerHTML = `${contas}`
+    span3.innerHTML = `${((contas * 100) / barra_de_chocolate.pedaco).toFixed(0)}`
+}
+
+function ver_goldenticket(){
+    span2.innerHTML = `${barra_de_chocolate.pedaco}`
+    span3.innerHTML = `${((contas * 100) / barra_de_chocolate.pedaco).toFixed(0)}`
+    var aleatorio = Math.random()
+    div_1.innerHTML = ``
+    var sorteado = parseInt((aleatorio * 10) + 1)
+    if(sorteado % 2 == 0){
+        div_1.style.maxWidth = "490px"
+        div_1.innerHTML += `<span style="color: white;margin-left: 35px">Você ganhou o Convite Dourado e mais 50 pontos.</span><br><br>`
+        div_1.innerHTML += `<img src="../vetores/golden_ticket.svg" width="500px"><br><br><br>`
+        adicionar_pontos()
+    } else {
+        div_1.style.maxWidth = "490px"
+        div_1.innerHTML += 
+        `<span style="color: white;margin-left: 170px">Não foi dessa vez!</span><br><br>`
+        div_1.innerHTML += `<img src="../vetores/aluminio.svg" width="500px"><br><br><br>`
+    }
+        div_1.innerHTML += `<button onclick="window.location.href = './wonkabar.html'" class="botao_comer" style="margin-left: 160px;">Tentar Denovo</button>
+`
+}
+
+function adicionar_pontos(){
+    var idUsuario = sessionStorage.getItem("ID_USUARIO")
+
+    fetch(`/usuarios/pontuacao/${idUsuario}`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            // crie um atributo que recebe o valor recuperado aqui
+            // Agora vá para o arquivo routes/usuario.js
+            pontosServer: 50
+        })
+    }).then(function (resposta) {
+
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+            // cardErro.style.display = "block";
+            console.log('pontos inseridos no banco')
+        } else {
+            throw ("Houve um erro ao tentar realizar o cadastro!");
+        }
+    }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+    });
+
+    return false;
+}
+</script>
+
+    

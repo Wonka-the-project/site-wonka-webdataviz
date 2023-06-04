@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&display=swap');
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #AD1D20;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    scrollbar-width: thin;
+}
+
+body::-webkit-scrollbar {
+    width: 8px;
+    height: 3px; 
+}
+  
+body::-webkit-scrollbar-track {
+    background: #67391d;
+    padding: 2px;
+}
+  
+body::-webkit-scrollbar-thumb {
+    background-color: #c6ae5d;
+}
+
+.chocolate_derretido {
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
+    width: 105vw;
+    height: 100%;
+    margin-left: -10px;
+}
+
+.botao_comer:hover{
+    transform: scale(1.05);
+
+}
+
+.nav_bar {
+    padding: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: -21%;
+
+}
+
+.ul1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px;
+    list-style: none;
+    color: white;
+    margin-left: 20px;
+    width: 100%;
+
+}
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+    transition: all 0.2s linear;
+}
+
+a:hover {
+    color: #c6ae5dff;
+    transition: .3s;
+}
+
+
+
+.comer_barra_container{
+        display: flex; 
+        justify-content: space-around; 
+        width: 90%; 
+        height: 450px; 
+        margin: 0 auto;
+        margin-top: -10px;
+}
+
+.quantos_comer{
+    display: flex; 
+    justify-content: center; 
+    flex-direction: column;
+    align-items: center;
+    width: 25%; 
+    height: 450px; 
+    margin: 0 auto;
+    margin-bottom: 70px;
+    gap: 20px;
+}
+
+.barra{
+    display: flex; 
+    justify-content: center; 
+    width: 50%; 
+    height: 450px; 
+    margin: 0 auto;
+    margin-bottom: 70px;
+}
+
+.pedaco{
+    display: flex; 
+    justify-content: center; 
+    flex-wrap: wrap;
+    align-items: center;
+    height: auto; 
+    margin: 0 auto;
+}
+
+.porcentagem{
+    display: flex; 
+    justify-content: center; 
+    flex-direction: column;
+    align-items: center;
+    width: 25%; 
+    height: 450px; 
+    margin: 0 auto;
+}
+
+.fundo{
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    flex-direction: column;
+    width: 90%; 
+    height: 300px; 
+    margin: 0 auto;
+    background-color: #faf6f3;
+    border-radius: 30px;
+    gap: -55px;
+}
+
+h3{
+    font-size: medium;
+    color: #57351D;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.tag_input {
+    width: 40px;
+    margin: 0 auto;
+    padding: 13px 20px;
+    border: none;
+    margin-bottom: 25px;
+    border-radius: 40px;
+    background-color: #faf6f3;
+    color: #57351D;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    text-align: start;
+    margin-left: 10px;
+
+}
+.botao_comer {
+    background-color: #57351D;
+    border-radius: 33px;
+    border: 0;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: -20px;
+}

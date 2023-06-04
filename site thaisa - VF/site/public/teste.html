@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../vetores/w!.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/goldenticket.css">
+    <script src="../js/wonkabar.js"></script>
+    <title>Wonka!</title>
+</head>
+<body onload="montar_barra(), usuariomudar()">
+
+     <!-- começando o header -->
+     <div class="header-container" id="header">
+        <header class="cabeca">
+            <div>
+                <img src="../vetores/chcolcate.svg" width="100%" class="chocolate_derretido">
+            </div>
+
+            <div class="nav_bar">
+                <a href="./wonka.html"><img class="logo" src="../vetores/wonka logo.svg" width="140px"></a>
+
+                <ul class="ul1">
+                    <a href="./personagens.html">
+                        <li>Personagens</li>
+                    </a>
+                    <a href="./tour.html">
+                        <li>Tour pela Fábrica</li>
+                    </a>
+                    <a href="./loompalandia.html">
+                        <li>Loompalândia</li>
+                    </a>
+                    <a href="wonkabar.html">
+                        <li>Wonka Bar</li>
+                    </a>
+                </ul>
+
+                <a href="./login.html"><img src="../vetores/login.svg" width="120px" class="ticket_login"></a>
+            </div>
+        </header>
+    </div>
+    <!-- fim do header -->
+
+    <section class="comer_barra_container">
+        <div class="quantos_comer">
+            <img src="../vetores/logo wonkabar.svg" width="200px">
+
+        <div>
+            <span style="color: white;">Quantos pedaços</span>
+            <input type="number" id="inp_num_pedaco" class="tag_input"><br>
+        </div>
+        <button onclick="comer()" class="botao_comer">Comer</button>
+        </div>
+
+        <div class="barra">
+            <div class="pedaco">
+                <div style="flex-wrap: wrap;" id="div_1">
+                    <span style="color: white;">Parabéns! Você ganhou o Convite Dourado e mais 50 pontos.</span><br><br>
+                    <img src="../vetores/golden_ticket.svg" width="500px"><br><br><br>
+                    <button onclick="window.location.href = './wonkabar.html'" class="botao_comer" style="margin-left: 160px;">Tentar Denovo</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="porcentagem">
+            <div class="fundo">
+                <div style="height: fit-content; text-align: center;">
+                <div>
+                    <h3>Você já comeu</h3>
+                </div>
+                <div>
+                    <h3 style="font-size: 25px;
+                    font-weight: 900;"><span id="span2">0</span>/<span id="span1">14</span></h3>
+                </div>
+                <div>
+                    <h3>pedaços.</h3>
+                </div>
+                <div>
+                    <h3 style="font-size: 25px;
+                    font-weight: 900;"><span id="span3">0</span>%</h3>
+                </div>
+                <div>
+                    <h3>da barra</h3>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

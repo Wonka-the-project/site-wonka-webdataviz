@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../vetores/w!.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/personagens.css">
+    <script src="../js/personagens.js"></script>
+    <title>Wonka!</title>
+    <script src="./js/global.js"></script>
+
+</head>
+
+<body onload="usuariomudar()">
+    <!-- modal das informações personagens -->
+    <div id="aparecer_personagens"></div>
+
+    <!-- ticket do cadastro -->
+    <a href="cadastro.html"><div class="ticket_cadastro">
+        <img src="../vetores/cadastrese.svg" width="140px"></a>
+    </div>
+
+    <!-- voltar ao topo -->
+    <div class="voltar_ao_topo">
+        <a href="#header"><img src="../vetores/seta.svg" width="70px"></a>
+    </div>
+
+    <!-- começando o header -->
+    <div class="header-container" id="header">
+        <header class="cabeca">
+            <div>
+                <img src="../vetores/chcolcate.svg" width="100%" class="chocolate_derretido">
+            </div>
+
+            <div class="nav_bar">
+                <a href="./wonka.html"><img class="logo" src="../vetores/wonka logo.svg" width="140px"></a>
+
+                <ul class="ul1">
+                    <a href="#header">
+                        <li>Personagens</li>
+                    </a>
+                    <a href="./tour.html">
+                        <li>Tour pela Fábrica</li>
+                    </a>
+                    <a href="./loompalandia.html">
+                        <li>Loompalândia</li>
+                    </a>
+                    <a href="./wonkacards.html">
+                        <li>Wonka Cards</li>
+                    </a>
+                    <a href="wonkabar.html">
+                        <li>Wonka Bar</li>
+                    </a>
+                </ul>
+
+                <div id="div_logineusuario"
+                    style="width: 220px; display: flex; align-items: center; justify-content: center; gap: 10px; margin-left: 30px;">
+                    <a href="./login.html"><img src="../vetores/login.svg" width="120px" class="ticket_login"></a>
+                </div>
+        </header>
+    </div>
+    <!-- fim do header -->
+
+    <!-- começo augustus gloop -->
+    <section>
+        <img src="../vetores/fundo augustus.svg" style="width: fit-content;" class="fundo_augustus">
+        <img src="../vetores/fundo montanhas.svg" width="102%" style="margin-top:90px; margin-left: -5px;">
+        <button onclick="mostrar_conteudo_augustus()" class="botao_augustus">Augustus Gloop</button>
+        <img class="augustus_ilustracao" src="../vetores/augustus.svg" width="350px">
+    </section>
+
+    <!-- começo violet beauregarde -->
+    <section>
+        <img src="../vetores/fundo_violet.svg" width="100%">
+        <button onclick="mostrar_conteudo_violet()" class="botao_violet">Violet Beauregarde</button>
+        <img class="violet_ilustracao" src="../vetores/violet_ilustracao.svg" width="380px">
+    </section>
+
+    <!-- começo veruca salt -->
+    <section>
+        <img src="../vetores/fundo_veruca.svg" width="100%" style="margin-top: -15px;">
+        <button onclick="mostrar_conteudo_veruca()" class="botao_veruca">Veruca Salt</button>
+        <img class="veruca_ilustracao" src="../vetores/ilustracao_veruca.svg" width="450px">
+    </section>
+
+    <!-- começo mike teevee -->
+    <section>
+        <img src="../vetores/fundo mike.svg" width="100%" style="margin-top: -15px;">
+        <button onclick="mostrar_conteudo_mike()" class="botao_mike">Mike Teevee</button>
+        <img class="mike_ilustracao" src="../vetores/mike_ilustracao.svg" width="400px">
+    </section>
+
+    <!-- começo charlie bucket -->
+    <section>
+        <img src="../vetores/fundo charlie.svg" width="100%" style="margin-top: -5px;">
+        <button onclick="mostrar_conteudo_charlie()" class="botao_charlie">Charlie Bucket</button>
+        <img class="charlie_ilustracao" src="../vetores/ilustracao_charlie.svg" width="350px">
+    </section>
+
+    <!-- começo do footer -->
+    <footer>
+        <img src="../vetores/chcolcate.svg" width="105%" style="margin-left: -25px;">
+
+        <div class="footer_container">
+           <button onclick="nobrega()" style="cursor: pointer; background-color: transparent; border: none;"><img src="../vetores/nbrg.svg" width="250px"></button>
+
+            <ul class="ul2">
+                <a class="a2" href="./personagens.html">
+                    <li>Personagens</li>
+                </a>
+                <a class="a2" href="./tour.html">
+                    <li>Tour pela Fábrica</li>
+                </a>
+                <a class="a2" href="./loompalandia.html">
+                    <li>Loompalândia</li>
+                </a>
+                <a class="a2" href="./wonkacards.html">
+                    <li>Wonka Cards</li>
+                </a>
+                <a class="a2" href="./wonkabar.html">
+                    <li>Wonka Bar</li>
+                </a>
+            </ul>
+        </div>
+    </footer>
+    <!-- fim do footer -->
+
+</body>
+
+</html>

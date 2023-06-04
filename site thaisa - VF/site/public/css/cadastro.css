@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&display=swap');
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #FAF6F3;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    scrollbar-width: thin;
+}
+
+body::-webkit-scrollbar {
+    width: 8px;
+    height: 3px; 
+}
+  
+body::-webkit-scrollbar-track {
+    background: #67391d;
+    padding: 2px;
+}
+  
+body::-webkit-scrollbar-thumb {
+    background-color: #c6ae5d;
+}
+.logo:hover{
+    transform: scale(1.05);
+}
+
+.ticket_login:hover{
+    transform: scale(1.05);
+}
+
+.botao_login:hover{
+    transform: scale(1.05);
+}
+
+.cadastro_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
+.fundo {
+    width: 70%;
+    height: 500px;
+    background-color: #f3ede2;
+    border-radius: 40px;
+    margin: 70px;
+    display: flex;
+    justify-content: end;
+}
+
+.fundo_vermelho {
+    width: 40%;
+    height: 500px;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+    background-color: #AD1D20;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    gap: 20px;
+
+}
+
+.cadastro {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    gap: 30px;
+    width: 60%;
+}
+
+.tag_input {
+    width: 300px;
+    margin: 0 auto;
+    padding: 13px 20px;
+    border: none;
+    margin-bottom: 25px;
+    border-radius: 40px;
+    background-color: #e3d6cb9e;
+    color: #000000;
+}
+
+.tag_input::placeholder {
+    color: #57351D;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    text-align: start;
+
+}
+
+select {
+    width: 300px;
+    margin: 0 auto;
+    padding: 13px 20px;
+    border: none;
+    margin-bottom: 25px;
+    border-radius: 40px;
+    background-color: #e3d6cb9e;
+    color: #57351D;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    text-align: start;
+
+}
+
+#inp_dtnasc{
+    width: 300px;
+    margin: 0 auto;
+    padding: 13px 20px;
+    border: none;
+    margin-bottom: 25px;
+    border-radius: 40px;
+    background-color: #e3d6cb9e;
+    color: #57351D;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    text-align: start;
+
+}
+
+select option {
+    color: #57351D;
+}
+
+.botao_login {
+    background-color: #57351D;
+    border-radius: 33px;
+    border: 0;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 11px 30px;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.credenciais{
+   text-align: start;
+   
+}

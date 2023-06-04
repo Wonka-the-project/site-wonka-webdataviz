@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../vetores/w!.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/cadastro.css">
+    <script src="../js/cadastro.js"></script>
+    <title>Wonka!</title>
+    <script src="./js/global.js"></script>
+
+</head>
+<body>
+    <div id="div_alert"
+    style=" z-index: 99999; display: flex; align-items: center; justify-content: center;position: absolute; left: 38%;">
+    </div>
+
+    <section class="cadastro_container">
+        <div class="fundo">
+
+            <div class="cadastro">
+                <div class="credenciais">
+                    <h2 style="color: #57351D; text-align: center;">Cadastro</h2>
+                    
+                <form>
+                    <input required id="nome_input" type="text" class="tag_input" placeholder="Nome" style="width: 40%;">
+                    <input required id="sobrenome_input" type="text" class="tag_input" placeholder="Sobrenome" style="width: 40%;"><br>
+
+                    <!-- <select id="sexo_input" required style="width: 35%;">
+                        <option value = "" disabled selected >Sexo</option>
+                        <option value="F">Feminino</option>
+                        <option value="M">Masculino</option>
+                        <option value="N">Outros</option>
+                    </select>
+                    <input required style="width: 35%;" type="date" id="dtnasc_input" placeholder="Data de Nascimento"><br> -->
+
+                    <select required id="personagem_input" style="width: 49%;">
+                        <option value = "" disabled selected >Personagem Favorito</option>
+                        <option value="2">Willy Wonka</option>
+                        <option value="3">Augustus Gloop</option>
+                        <option value="4">Violet Beauregarde</option>
+                        <option value="5">Veruca Salt</option>
+                        <option value="6">Mike Teevee</option>
+                        <option value="1">Charlie Bucket</option>
+                    </select>
+
+                    <input id="email_input" required style="width: 70%;" type="email" class="tag_input" placeholder="E-mail"><br>
+                    <!-- <input id="senha_nao_input" required style="width: 40%;" type="password" class="tag_input" placeholder="Senha"> -->
+                    <input id="senha_input" required style="width: 40%;" type="password" class="tag_input" placeholder="Senha"><br>
+
+                    <div style="width: 100%; display: flex;align-items: center;justify-content: center;">
+                        <button onclick="cadastrar()" class="botao_login">Cadastrar</button>
+                    </div>
+                </form>
+                </div>
+
+            </div>
+
+            <div class="fundo_vermelho">
+                <a href="./index.html"><img  class="logo" src="../vetores/wonka logo.svg" width="250px"></a>
+                <a href="./login.html"><img class="ticket_login" src="../vetores/login.svg" width="120px"></a>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
+<script>
+    function cadastrar() {
+        // aguardar();
+        var nomeVar = nome_input.value;
+        var sobrenomeVar = sobrenome_input.value;
+        var personagemVar = Number(personagem_input.value);
+        var emailVar = email_input.value;
+        var senhaVar = senha_input.value;
+
+        if (nomeVar == "" ||sobrenomeVar == "" || personagemVar == "" || emailVar == "" || senhaVar == "") {
+            alert ("Mensagem de erro para todos os campos em branco");
+
+            // finalizarAguardar();
+            return false;
+        }
+        // else {
+        //     setInterval(sumirMensagem, 5000)
+        // }
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                sobrenomeServer: sobrenomeVar,
+                personagemServer: personagemVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar,
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                // cardErro.style.display = "block";
+
+                alert ("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
+
+                
+                    window.location = "login.html";
+
+                limparFormulario();
+                finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
+
+        return false;
+    }
+
+    // function sumirMensagem() {
+    //     cardErro.style.display = "none"
+    // }
+
+</script>

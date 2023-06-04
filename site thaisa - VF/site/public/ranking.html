@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../vetores/w!.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/ranking.css">
+    <script src="../js/ranking.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Wonka!</title>
+    <script src="./js/global.js"></script>
+
+</head>
+
+<body onload="exibir(), exibir_votos()">
+    <!-- começando o header -->
+    <div class="header-container" id="header">
+        <header class="cabeca">
+            <div>
+                <img src="../vetores/chcolcate.svg" width="100%" class="chocolate_derretido">
+            </div>
+
+            <div class="nav_bar">
+                <a href="#header"><img class="logo" src="../vetores/wonka logo.svg" width="140px"></a>
+
+                <ul class="ul1">
+                    <a href="./personagens.html">
+                        <li>Personagens</li>
+                    </a>
+                    <a href="./tour.html">
+                        <li>Tour pela Fábrica</li>
+                    </a>
+                    <a href="./loompalandia.html">
+                        <li>Loompalândia</li>
+                    </a>
+                    <a href="./wonkacards.html">
+                        <li>Wonka Cards</li>
+                    </a>
+                    <a href="wonkabar.html">
+                        <li>Wonka Bar</li>
+                    </a>
+                </ul>
+
+                <div id="div_logineusuario"
+                    style="width: 220px; display: flex; align-items: center; justify-content: center; gap: 10px; margin-left: 30px;">
+                    <a href="./login.html"><img src="../vetores/login.svg" width="120px" class="ticket_login"></a>
+                </div>
+        </header>
+    </div>
+    <!-- fim do header -->
+
+    <section>
+        <div class="container_ranking">
+
+            <div class="grafico">
+                <div style="display: flex; align-items: center; justify-content: center; width: 100%; gap: 10px;">
+                    <img src="../vetores/estrela.png" width="50px">
+                    <h3 style="color: #67391d;">Pontos</h3>
+                </div><br>
+                <div style="width:100%; height: 300px; display: flex;align-items: center;justify-content: center;">
+                    <canvas id="myChart" style="position: relative; height: 60vh; width: 100vh;"></canvas>
+                </div>
+            </div>
+
+            <div class="kpi" style="margin-top: -60px;">
+                <div style="display: flex; align-items: center; justify-content: center;">
+                    <h3 style="color:#67391d;">Personagens Favoritos</h3>
+                </div>
+
+                <div class="primeira_linha">
+                    <div
+                        style="width: 180px; height: 150px; background-color: #c6ae5d; border-radius: 20px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 10px;">
+                        <div style="text-align: start; margin-top: 15px;">
+                            <div><span style="color:#67391d; font-size: small;">Wonka</span></div>
+                            <div><span style="color:#67391d; font-size: x-large;"><span
+                                        style="font-weight: 900;" id="id_1">86</span></b> Votos</span></div>
+                        </div>
+                        <div>
+                            <img src="../vetores/wonka_ilustracao.svg" width="80px">
+                        </div>
+                    </div>
+
+                    <div
+                        style="width: 180px; height: 150px; background-color: #c6ae5d; border-radius: 20px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 10px;">
+                        <div style="text-align: start; margin-top: 15px;">
+                            <div><span style="color:#67391d; font-size: small;">Augustus</span></div>
+                            <div><span style="color:#67391d; font-size: x-large;"><span
+                                        style="font-weight: 900;" id="id_2">32</span></b> Votos</span></div>
+                        </div>
+                        <div>
+                            <img src="../vetores/augustus.svg" width="80px">
+                        </div>
+                    </div>
+
+                    <div
+                        style="width: 180px; height: 150px; background-color: #c6ae5d; border-radius: 20px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 10px;">
+                        <div style="text-align: start; margin-top: 15px;">
+                            <div><span style="color:#67391d; font-size: small;">Violet</span></div>
+                            <div><span style="color:#67391d; font-size: x-large;"><span
+                                        style="font-weight: 900;" id="id_3">44</span></b> Votos</span></div>
+                        </div>
+                        <div>
+                            <img src="../vetores/violet_ilustracao.svg" width="80px">
+                        </div>
+                    </div>
+                </div>
+                <div class="primeira_linha">
+                    <div
+                        style="width: 180px; height: 150px; background-color: #c6ae5d; border-radius: 20px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 10px;">
+                        <div style="text-align: start; margin-top: 15px;">
+                            <div><span style="color:#67391d; font-size: small;">Veruca</span></div>
+                            <div><span style="color:#67391d; font-size: x-large;"><span
+                                        style="font-weight: 900;" id="id_4">29</span></b> Votos</span></div>
+                        </div>
+                        <div>
+                            <img src="../vetores/ilustracao_veruca.svg" width="80px">
+                        </div>
+                    </div>
+
+                    <div
+                        style="width: 180px; height: 150px; background-color: #c6ae5d; border-radius: 20px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 10px;">
+                        <div style="text-align: start; margin-top: 15px;">
+                            <div><span style="color:#67391d; font-size: small;">Mike</span></div>
+                            <div><span style="color:#67391d; font-size: x-large;"><span
+                                        style="font-weight: 900;" id="id_5">18</span></b> Votos</span></div>
+                        </div>
+                        <div>
+                            <img src="../vetores/mike_ilustracao.svg" width="80px">
+                        </div>
+                    </div>
+
+                    <div
+                        style="width: 180px; height: 150px; background-color: #c6ae5d; border-radius: 20px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 10px;">
+                        <div style="text-align: start; margin-top: 15px;">
+                            <div><span style="color:#67391d; font-size: small;">Charlie</span></div>
+                            <div><span style="color:#67391d; font-size: x-large;"><span
+                                        style="font-weight: 900;"id="id_6">77</span></b> Votos</span></div>
+                        </div>
+                        <div>
+                            <img src="../vetores/ilustracao_charlie.svg" width="80px">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</body>
+</html>
+
+<script>
+
+function exibir(){
+    const ctx = document.getElementById('myChart');
+
+    var labels = []
+
+    const dados = {
+    labels: labels,
+    datasets: [{
+        label: 'Pontos',
+        data: [],
+        backgroundColor: '#c6ae5dff',
+        borderColor: '#ffffff',
+        borderWidth: 0,
+        borderRadius: 8,
+    }]
+};
+
+const config = {
+    type: 'bar',
+    data: dados,
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true,
+                grid: {
+                    display: false
+                }
+            },
+            x: {
+                grid: {
+                    display: false
+                }
+            }
+        }
+    }
+};
+
+fetch("/usuarios/obter").then(function (resposta) {
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+                    for (var i = 0; i < resposta.length; i++) {
+
+                        labels.push(resposta[i].nome)
+                        dados.datasets[0].data.push(resposta[i].total_pontos)
+                    }
+                    let myChart = new Chart(
+                        document.getElementById(`myChart`),
+                        config
+                    );
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+        });
+
+
+        console.log(dados)
+        console.log(labels)
+
+    }
+
+    var contar = 0
+
+    function exibir_votos(){
+        
+        fetch("/usuarios/obterContagem").then(function (resposta) {
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+                    contar = resposta[0].contagem
+
+                    id_1.innerHTML = `${contar}`
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+        });
+        console.log(contar)
+        exibir_votos_augustus()
+        
+    }
+
+    var contar_augustus = 0
+    function exibir_votos_augustus(){
+        
+        fetch("/usuarios/obterContagem_augustus").then(function (resposta) {
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+                    contar_augustus = resposta[0].contagem
+
+                    id_2.innerHTML = `${contar_augustus}`
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+        });
+        console.log(contar)
+
+        exibir_votos_violet()
+    }
+
+    var contar_violet = 0
+    function exibir_votos_violet(){
+        
+        fetch("/usuarios/obterContagem_violet").then(function (resposta) {
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+                    contar_violet = resposta[0].contagem
+
+                    id_3.innerHTML = `${contar_violet}`
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+        });
+        console.log(contar)
+
+        exibir_votos_veruca()
+    }
+
+    var contar_veruca = 0
+    function exibir_votos_veruca(){
+        
+        fetch("/usuarios/obterContagem_veruca").then(function (resposta) {
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+                    contar_veruca = resposta[0].contagem
+
+                    id_4.innerHTML = `${contar_veruca}`
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+        });
+        console.log(contar)
+
+        exibir_votos_mike()
+    }
+
+    var contar_mike = 0
+    function exibir_votos_mike(){
+        
+        fetch("/usuarios/obterContagem_mike").then(function (resposta) {
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+                    contar_mike = resposta[0].contagem
+
+                    id_5.innerHTML = `${contar_mike}`
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+        });
+        console.log(contar)
+
+        exibir_votos_charlie()
+    }
+
+    var contar_charlie = 0
+    function exibir_votos_charlie(){
+        
+        fetch("/usuarios/obterContagem_charlie").then(function (resposta) {
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+                    contar_charlie = resposta[0].contagem
+
+                    id_6.innerHTML = `${contar_charlie}`
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+        });
+        console.log(contar)
+    }
+
+</script>

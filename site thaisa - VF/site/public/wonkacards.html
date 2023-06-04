@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../vetores/w!.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/wonkacards.css">
+    <script src="../js/wonkacards.js"></script>
+    <title>Wonka!</title>
+    <script src="./js/global.js"></script>
+</head>
+
+<body>
+    <!-- ticket do cadastro -->
+    <a href="./ranking.html">
+        <div class="ticket_cadastro" id="cadastrar">
+            <img src="../vetores/ranking.png" width="70px">
+    </a>
+    </div>
+
+    <div id="aparecer_willy"></div>
+
+    <!-- começando o header -->
+    <div class="header-container" id="header">
+        <header class="cabeca">
+            <div>
+                <img src="../vetores/chcolcate.svg" width="100%" class="chocolate_derretido">
+            </div>
+
+            <div class="nav_bar">
+                <a href="./wonka.html"><img class="logo" src="../vetores/wonka logo.svg" width="140px"></a>
+
+                <ul class="ul1">
+                    <a href="./personagens.html">
+                        <li>Personagens</li>
+                    </a>
+                    <a href="./tour.html">
+                        <li>Tour pela Fábrica</li>
+                    </a>
+                    <a href="./loompalandia.html">
+                        <li>Loompalândia</li>
+                    </a>
+                    <a href="#header">
+                        <li>Wonka Cards</li>
+                    </a>
+                    <a href="wonkabar.html">
+                        <li>Wonka Bar</li>
+                    </a>
+                </ul>
+
+                <a href="./login.html"><img src="../vetores/login.svg" width="120px" class="ticket_login"></a>
+            </div>
+        </header>
+    </div>
+    <!-- fim do header -->
+    <section>
+        <div id="container" class="container_cards">
+            <div style="display: flex; flex-direction: column; align-items: center;">
+                <div id="div_1" style="display: flex; flex-direction: row; gap: 10px; margin-bottom: 25px;">
+
+                    <div id="card1">
+                        <img src="../vetores/back card.png" width="210px">
+                    </div>
+                    <div id="card2">
+                        <img src="../vetores/back card.png" width="210px">
+                    </div>
+                    <div id="card3">
+                        <img src="../vetores/back card.png" width="210px">
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="div_sorteio"
+                style="display: flex; flex-direction: column; align-items: center; margin-top: -25px;">
+                <img src="../vetores/wonka card logo.svg" width="300px">
+                <h3 style="font-size: 15px; text-align: center; color: #3d2823;">Sorteie um personagem e ganhe pontos!
+                </h3>
+                <button id="botao_sortear" class="botao_sortear" onclick="girar()">Sortear</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- começo do footer -->
+    <footer>
+        <img src="../vetores/chcolcate.svg" width="105%" style="margin-left: -25px;">
+
+        <div class="footer_container">
+           <button onclick="nobrega()" style="cursor: pointer; background-color: transparent; border: none;"><img src="../vetores/nbrg.svg" width="250px"></button>
+
+            <ul class="ul2">
+                <a class="a2" href="./personagens.html">
+                    <li>Personagens</li>
+                </a>
+                <a class="a2" href="./tour.html">
+                    <li>Tour pela Fábrica</li>
+                </a>
+                <a class="a2" href="./loompalandia.html">
+                    <li>Loompalândia</li>
+                </a>
+                <a class="a2" href="./wonkacards.html">
+                    <li>Wonka Cards</li>
+                </a>
+                <a class="a2" href="./wonkabar.html">
+                    <li>Wonka Bar</li>
+                </a>
+            </ul>
+        </div>
+    </footer>
+    <!-- fim do footer -->
+</body>
+</html>
