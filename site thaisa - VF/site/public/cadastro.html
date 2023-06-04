@@ -32,14 +32,6 @@
                         <input required id="sobrenome_input" type="text" class="tag_input" placeholder="Sobrenome"
                             style="width: 40%;"><br>
 
-                        <!-- <select id="sexo_input" required style="width: 35%;">
-                        <option value = "" disabled selected >Sexo</option>
-                        <option value="F">Feminino</option>
-                        <option value="M">Masculino</option>
-                        <option value="N">Outros</option>
-                    </select>
-                    <input required style="width: 35%;" type="date" id="dtnasc_input" placeholder="Data de Nascimento"><br> -->
-
                         <select required id="personagem_input" style="width: 49%;">
                             <option value="" disabled selected>Personagem Favorito</option>
                             <option value="2">Willy Wonka</option>
@@ -75,9 +67,8 @@
 </html>
 <script>
     function cadastrar() {
-        event.preventDefault(); // Evitar o envio do formulário
+        event.preventDefault();
 
-        // aguardar();
         var nomeVar = nome_input.value;
         var sobrenomeVar = sobrenome_input.value;
         var personagemVar = Number(personagem_input.value);
@@ -103,23 +94,14 @@
                 setTimeout(function () {
                     div_alert.style.display = "none";
                 }, 2000);
-
-            // finalizarAguardar();
             return false;
         }
-        // else {
-        //     setInterval(sumirMensagem, 5000)
-        // }
-
-        // Enviando o valor da nova input
         fetch("/usuarios/cadastrar", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js
                 nomeServer: nomeVar,
                 sobrenomeServer: sobrenomeVar,
                 personagemServer: personagemVar,
@@ -160,14 +142,26 @@
             }
         }).catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
-            // finalizarAguardar();
+            div_alert.innerHTML = `
+                    <div class="div_1"
+                        style="margin-top: 25px; width: 350px;height: 150px;background-color:#ad1d20;border-radius: 30px;display: flex;align-items: center;justify-content: center;gap: 30px;">
+                        <div>
+                            <img src="./vetores/nao check.png" width="100px">
+                        </div>
+                        <div style="width: 40%; text-align: center; font-size: x-large; font-weight: 700;
+                            color: white;">
+                            Insira um email válido!
+                        </div>
+                    </div>
+                `;
+
+                div_alert.style.display = "block";
+
+                setTimeout(function () {
+                    div_alert.style.display = "none";
+                }, 2000);
         });
 
         return false;
     }
-
-    // function sumirMensagem() {
-    //     cardErro.style.display = "none"
-    // }
-
 </script>
