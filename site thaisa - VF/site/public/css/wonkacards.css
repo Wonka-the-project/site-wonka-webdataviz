@@ -47,32 +47,34 @@
         height: 100%;
         margin-left: -10px;
     }
-
+    
     .nav_bar {
         padding: 100px;
         display: flex;
         align-items: center;
-        justify-content: space-around;
+        justify-content: space-between;
         margin-top: -21%;
-
+    
     }
-
+    
     .ul1 {
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        gap: 50px;
+        justify-content: space-around;
+        gap: 10px;
         list-style: none;
         color: white;
-        margin-left: -25px;
+        margin-left: 20px;
+        width: 100%;
+    
     }
-
+    
     a {
         text-decoration: none;
         color: #ffffff;
         transition: all 0.2s linear;
     }
-
+    
     a:hover {
         color: #c6ae5dff;
         transition: .3s;
@@ -111,7 +113,7 @@
         color: #ffffff;
         font-size: 16px;
         font-weight: 700;
-        padding: 18px 35px;
+        padding: 18px 20px;
         text-decoration: none;
         font-family: 'Montserrat', sans-serif;
     }

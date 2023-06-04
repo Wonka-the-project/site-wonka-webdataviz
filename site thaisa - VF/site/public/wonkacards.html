@@ -12,7 +12,7 @@
     <script src="./js/global.js"></script>
 </head>
 
-<body>
+<body onload="usuariomudar()">
     <!-- ticket do cadastro -->
     <a href="./ranking.html">
         <div class="ticket_cadastro" id="cadastrar">
@@ -42,7 +42,7 @@
                     <a href="./loompalandia.html">
                         <li>Loompalândia</li>
                     </a>
-                    <a href="#header">
+                    <a href="./wonkacards.html">
                         <li>Wonka Cards</li>
                     </a>
                     <a href="wonkabar.html">
@@ -50,11 +50,15 @@
                     </a>
                 </ul>
 
-                <a href="./login.html"><img src="../vetores/login.svg" width="120px" class="ticket_login"></a>
-            </div>
+                <div id="div_logineusuario"
+                    style="width: 220px; display: flex; align-items: center; justify-content: center; gap: -10px; margin-left: 40px;">
+                    <a href="./login.html"><img src="../vetores/login.svg" width="120px" class="ticket_login"></a>
+                </div>
         </header>
     </div>
     <!-- fim do header -->
+
+
     <section>
         <div id="container" class="container_cards">
             <div style="display: flex; flex-direction: column; align-items: center;">
