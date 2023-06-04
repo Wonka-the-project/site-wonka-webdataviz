@@ -11,15 +11,24 @@
     <script src="./js/global.js"></script>
 
 </head>
-<body onload="usuariomudar()">
+<body onload="usuariomudar(), verificar()">
+    <div id="div_alert"
+    style=" display: flex !important; z-index: 99999; align-items: center; justify-content: center;position: absolute; left: 38%;">
+    </div>
+
+
     <div id="aparecer_willy"></div>
+    <div id="cadastrar"></div>
     
     <!-- ticket do cadastro -->
     <a href="./ranking.html">
-        <div class="ticket_cadastro" id="cadastrar">
+        <div class="ticket_cadastro" id="ranking">
             <img src="../vetores/ranking.png" width="70px">
     </a>
     </div>
+
+
+
     <!-- começando o header -->
     <div class="header-container" id="header">
         <header class="cabeca">

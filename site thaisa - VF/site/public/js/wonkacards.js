@@ -1,3 +1,4 @@
+
 function girar() {
     container.innerHTML = `<img src="../vetores/cartola.png" width="100px" class= "girante">`;
     container.style.transform = "rotate(720deg)";
@@ -91,6 +92,25 @@ function wonkacards() {
     document.getElementById(nome_card_aleatorio).innerHTML = personagem[aleatorio_personagem].imagem;
     
     adicionar_pontos()
+
+    div_alert.innerHTML = `
+                    <div class="div_1"
+                        style="margin-top: 25px; width: 350px;height: 150px;background-color:#c5ac5a;border-radius: 30px;display: flex;align-items: center;justify-content: center;gap: 30px;">
+                        <div>
+                            <img src="./vetores/check cards.png" width="100px">
+                        </div>
+                        <div style="width: 40%; text-align: center; font-size: x-large; font-weight: 700;
+                            color: white;">
+                            Ganhou ${pontos_card} pontos!
+                        </div>
+                    </div>
+                `;
+
+                div_alert.style.display = "block";
+
+                setTimeout(function () {
+                    div_alert.style.display = "none";
+                }, 2000);
 }
 
 // function redirecinar() {
@@ -154,4 +174,25 @@ function adicionar_pontos(){
     });
 
     return false;
+}
+
+function verificar(){ 
+
+    if(sessionStorage.NOME_USUARIO == null){
+        aparecer_willy.innerHTML = `
+<div class="modal_willy">
+    <div class="fundo_modal_willy" style="height: 250px; width: 650px;display: flex; align-items: center;justify-content: center;">
+        <div class="conteudo_modal_willy"> 
+            <img src="./vetores/cadeado.png" width="100px">
+
+            <div class="texto" style="width: 250px;">
+            
+                <h2 style="font-weight: 700; width: 250px;">Faça Login para Continuar</h2>
+                <a href="./login.html"><img src="./vetores/login.svg" width="150px"></a>
+            </div>
+        </div>
+    </div>
+</div>   
+        `
+    }
 }

@@ -1,3 +1,4 @@
+
 function mostrar_conteudo_principal(){
     aparecer_personagens.innerHTML = `
 <div class="modal_willy">

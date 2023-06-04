@@ -12,9 +12,11 @@
     <script src="./js/global.js"></script>
 
 </head>
+
 <body>
     <div id="div_alert"
-    style=" z-index: 99999; display: flex; align-items: center; justify-content: center;position: absolute; left: 38%;">
+        style=" display: flex !important; z-index: 99999; align-items: center; justify-content: center;position: absolute; left: 38%;">
+
     </div>
 
     <section class="cadastro_container">
@@ -23,12 +25,14 @@
             <div class="cadastro">
                 <div class="credenciais">
                     <h2 style="color: #57351D; text-align: center;">Cadastro</h2>
-                    
-                <form>
-                    <input required id="nome_input" type="text" class="tag_input" placeholder="Nome" style="width: 40%;">
-                    <input required id="sobrenome_input" type="text" class="tag_input" placeholder="Sobrenome" style="width: 40%;"><br>
 
-                    <!-- <select id="sexo_input" required style="width: 35%;">
+                    <form>
+                        <input required id="nome_input" type="text" class="tag_input" placeholder="Nome"
+                            style="width: 40%;">
+                        <input required id="sobrenome_input" type="text" class="tag_input" placeholder="Sobrenome"
+                            style="width: 40%;"><br>
+
+                        <!-- <select id="sexo_input" required style="width: 35%;">
                         <option value = "" disabled selected >Sexo</option>
                         <option value="F">Feminino</option>
                         <option value="M">Masculino</option>
@@ -36,30 +40,32 @@
                     </select>
                     <input required style="width: 35%;" type="date" id="dtnasc_input" placeholder="Data de Nascimento"><br> -->
 
-                    <select required id="personagem_input" style="width: 49%;">
-                        <option value = "" disabled selected >Personagem Favorito</option>
-                        <option value="2">Willy Wonka</option>
-                        <option value="3">Augustus Gloop</option>
-                        <option value="4">Violet Beauregarde</option>
-                        <option value="5">Veruca Salt</option>
-                        <option value="6">Mike Teevee</option>
-                        <option value="1">Charlie Bucket</option>
-                    </select>
+                        <select required id="personagem_input" style="width: 49%;">
+                            <option value="" disabled selected>Personagem Favorito</option>
+                            <option value="2">Willy Wonka</option>
+                            <option value="3">Augustus Gloop</option>
+                            <option value="4">Violet Beauregarde</option>
+                            <option value="5">Veruca Salt</option>
+                            <option value="6">Mike Teevee</option>
+                            <option value="1">Charlie Bucket</option>
+                        </select>
 
-                    <input id="email_input" required style="width: 70%;" type="email" class="tag_input" placeholder="E-mail"><br>
-                    <!-- <input id="senha_nao_input" required style="width: 40%;" type="password" class="tag_input" placeholder="Senha"> -->
-                    <input id="senha_input" required style="width: 40%;" type="password" class="tag_input" placeholder="Senha"><br>
+                        <input id="email_input" required style="width: 70%;" type="email" class="tag_input"
+                            placeholder="E-mail"><br>
+                        <!-- <input id="senha_nao_input" required style="width: 40%;" type="password" class="tag_input" placeholder="Senha"> -->
+                        <input id="senha_input" required style="width: 40%;" type="password" class="tag_input"
+                            placeholder="Senha"><br>
 
-                    <div style="width: 100%; display: flex;align-items: center;justify-content: center;">
-                        <button onclick="cadastrar()" class="botao_login">Cadastrar</button>
-                    </div>
-                </form>
+                        <div style="width: 100%; display: flex;align-items: center;justify-content: center;">
+                            <button onclick="cadastrar()" class="botao_login">Cadastrar</button>
+                        </div>
+                    </form>
                 </div>
 
             </div>
 
             <div class="fundo_vermelho">
-                <a href="./index.html"><img  class="logo" src="../vetores/wonka logo.svg" width="250px"></a>
+                <a href="./index.html"><img class="logo" src="../vetores/wonka logo.svg" width="250px"></a>
                 <a href="./login.html"><img class="ticket_login" src="../vetores/login.svg" width="120px"></a>
             </div>
         </div>
@@ -69,6 +75,8 @@
 </html>
 <script>
     function cadastrar() {
+        event.preventDefault(); // Evitar o envio do formulário
+
         // aguardar();
         var nomeVar = nome_input.value;
         var sobrenomeVar = sobrenome_input.value;
@@ -76,8 +84,25 @@
         var emailVar = email_input.value;
         var senhaVar = senha_input.value;
 
-        if (nomeVar == "" ||sobrenomeVar == "" || personagemVar == "" || emailVar == "" || senhaVar == "") {
-            alert ("Mensagem de erro para todos os campos em branco");
+        if (nomeVar == "" || sobrenomeVar == "" || personagemVar == "" || emailVar == "" || senhaVar == "") {
+            div_alert.innerHTML = `
+                    <div class="div_1"
+                        style="margin-top: 25px; width: 350px;height: 150px;background-color:#ad1d20;border-radius: 30px;display: flex;align-items: center;justify-content: center;gap: 30px;">
+                        <div>
+                            <img src="./vetores/nao check.png" width="100px">
+                        </div>
+                        <div style="width: 40%; text-align: center; font-size: x-large; font-weight: 700;
+                            color: white;">
+                            Campos em branco!
+                        </div>
+                    </div>
+                `;
+
+                div_alert.style.display = "block";
+
+                setTimeout(function () {
+                    div_alert.style.display = "none";
+                }, 2000);
 
             // finalizarAguardar();
             return false;
@@ -106,14 +131,36 @@
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-                
-                alert ("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
+                div_alert.innerHTML = `
+                    <div class="div_1"
+                        style="margin-top: 25px; width: 350px;height: 150px;background-color: #57823e;border-radius: 30px;display: flex;align-items: center;justify-content: center;gap: 30px;">
+                        <div>
+                            <img src="./vetores/check.svg" width="100px">
+                        </div>
+                        <div style="width: 40%; text-align: center; font-size: x-large; font-weight: 700;
+                            color: white;">
+                            Cadastro efetuado!
+                        </div>
+                    </div>
+                `;
+
+                div_alert.style.display = "block";
+
+                setTimeout(function () {
+                    div_alert.style.display = "none";
+                }, 2000);
+
+                var inputs = document.querySelectorAll("input");
+                inputs.forEach(function (input) {
+                    input.value = "";
+                });
+
             } else {
                 throw ("Houve um erro ao tentar realizar o cadastro!");
             }
         }).catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
-            finalizarAguardar();
+            // finalizarAguardar();
         });
 
         return false;

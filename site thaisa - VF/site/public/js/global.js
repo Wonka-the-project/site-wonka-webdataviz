@@ -1,7 +1,7 @@
 function usuariomudar() {
-    if (sessionStorage.NOME_USUARIO != "") {
+    if (sessionStorage.NOME_USUARIO != null) {
         div_logineusuario.innerHTML = `
-        <div>
+        <div id="div_da_foto">
         <img src="../vetores/usuario_foto.png" width="40px">
     </div>
 
@@ -18,9 +18,12 @@ function usuariomudar() {
     </div>
         `
     cadastrar.style.display = 'none'
-    }
 
     substituir()
+    } else {
+
+    }
+
 }
 
 var pontos_usuario = 0
@@ -29,6 +32,7 @@ function substituir(){
     var nome_user = sessionStorage.getItem("NOME_USUARIO")
     nome_usuario.innerHTML = `${nome_user}`
     var idUsuario = sessionStorage.getItem("ID_USUARIO")
+    var fkPersonagem = sessionStorage.getItem("FK_PERSONAGEM")
 
     fetch(`/usuarios/substituir/${idUsuario}`).then(function (resposta) {
         if (resposta.ok) {
@@ -37,7 +41,21 @@ function substituir(){
                 pontos_usuario = resposta[0].pontos;
     
                 ponto_usuario.innerHTML = `${resposta[0].pontos}`;
-    
+                
+                if (fkPersonagem == 1){
+                    div_da_foto.innerHTML = `<img src="../vetores/charlieteste.png" width="40px">` 
+                } else if (fkPersonagem == 2){
+                    div_da_foto.innerHTML = `<img src="../vetores/willyteste.png" width="40px">` 
+                } else if (fkPersonagem == 3){
+                    div_da_foto.innerHTML = `<img src="../vetores/augustusteste.png" width="40px">` 
+                } else if (fkPersonagem == 4){
+                    div_da_foto.innerHTML = `<img src="../vetores/violetteste.png" width="40px">` 
+                } else if (fkPersonagem == 5){
+                    div_da_foto.innerHTML = `<img src="../vetores/verucateste.png" width="40px">` 
+                } else if (fkPersonagem == 6){
+                    div_da_foto.innerHTML = `<img src="../vetores/miketeste.png" width="40px">` 
+                }
+
                 console.log(pontos_usuario); // Aqui o valor de pontos_usuario estará correto
             });
         } else {
@@ -54,4 +72,5 @@ function loginmudar(){
         <a href="./login.html"><img src="../vetores/login.svg" width="120px" class="ticket_login"></a>
         `
         cadastrar.style.display = 'block'
+        sessionStorage.clear();
 }

@@ -12,6 +12,11 @@
 
 </head>
 <body onload="montar_barra(), usuariomudar()">
+    <div id="div_alert"
+    style=" display: flex !important; z-index: 99999; align-items: center; justify-content: center;position: absolute; left: 38%;">
+    </div>
+
+    <div id="cadastrar"></div>
 
      <!-- começando o header -->
     <div class="header-container" id="header">
@@ -129,8 +134,25 @@ var contas = 0
 
 function comer() {
     var num_pedaco = Number(inp_num_pedaco.value);
-    if (num_pedaco + contas > barra_de_chocolate.pedaco) {
-        alert('maior que a quantidade de pedaços');
+    if (num_pedaco + contas > barra_de_chocolate.pedaco || num_pedaco <= 0 ) {
+        div_alert.innerHTML = `
+        <div class="div_1"
+            style="margin-top: 25px; width: 350px;height: 150px;background-color:#c5ac5a;border-radius: 30px;display: flex;align-items: center;justify-content: center;gap: 30px;">
+            <div>
+                <img src="./vetores/nao check barra.png" width="100px">
+            </div>
+            <div style="width: 40%; text-align: center; font-size: large; font-weight: 700;
+                color: white;">
+                Insira quantidade correta de pedaços!
+            </div>
+        </div>
+    `;
+
+    div_alert.style.display = "block";
+
+    setTimeout(function () {
+        div_alert.style.display = "none";
+    }, 2000);
     } else {
         contas += num_pedaco;
         fazer_contas();
@@ -170,14 +192,52 @@ function ver_goldenticket(){
         div_1.innerHTML += `<span style="color: white;margin-left: 35px">Você ganhou o Convite Dourado e mais 50 pontos.</span><br><br>`
         div_1.innerHTML += `<img src="../vetores/golden_ticket.svg" width="500px"><br><br><br>`
         adicionar_pontos()
+
+        div_alert.innerHTML = `
+        <div class="div_1"
+            style="margin-top: 25px; width: 350px;height: 150px;background-color:#c5ac5a;border-radius: 30px;display: flex;align-items: center;justify-content: center;gap: 30px;">
+            <div>
+                <img src="./vetores/check cards.png" width="100px">
+            </div>
+            <div style="width: 40%; text-align: center; font-size: large; font-weight: 700;
+                color: white;">
+                Ganhou 50 Pontos!
+            </div>
+        </div>
+    `;
+
+    div_alert.style.display = "block";
+
+    setTimeout(function () {
+        div_alert.style.display = "none";
+    }, 2000);
     } else {
         div_1.style.maxWidth = "490px"
         div_1.innerHTML += 
         `<span style="color: white;margin-left: 170px">Não foi dessa vez!</span><br><br>`
         div_1.innerHTML += `<img src="../vetores/aluminio.svg" width="500px"><br><br><br>`
+        div_alert.innerHTML = `
+        <div class="div_1"
+            style="margin-top: 25px; width: 350px;height: 150px;background-color:#c5ac5a;border-radius: 30px;display: flex;align-items: center;justify-content: center;gap: 30px;">
+            <div>
+                <img src="./vetores/nao check barra.png" width="100px">
+            </div>
+            <div style="width: 40%; text-align: center; font-size: large; font-weight: 700;
+                color: white;">
+                Tente Novamente!
+            </div>
+        </div>
+    `;
+
+    div_alert.style.display = "block";
+
+    setTimeout(function () {
+        div_alert.style.display = "none";
+    }, 2000);
     }
         div_1.innerHTML += `<button onclick="window.location.href = './wonkabar.html'" class="botao_comer" style="margin-left: 160px;">Tentar Denovo</button>
-`
+
+        `
 }
 
 function adicionar_pontos(){
